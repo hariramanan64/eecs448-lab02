@@ -108,15 +108,30 @@ void LinkedList<T>::addFront(T value)
 template <typename T>
 bool LinkedList<T>::removeBack()
 {
-	Node<T>* lastNode = nullptr;
-	Node<T>* secondintoLast = nullptr;
-	bool isRemoved = false;
-
 	/** TODO 
 		Fix this method
 	*/
 
-	return(isRemoved);
+	if(isEmpty())
+	{
+		return false; 
+	}
+	else if(m_size == 1)
+	{
+		Node<T>* temp = m_front; 
+		delete temp; 
+		m_front = nullptr;
+		m_size--;
+	}
+	else 
+	{
+		Node<T>* temp1 = backHelper1();	
+		Node<T>* temp2 = backHelper2();	
+		delete temp1;
+		temp2 -> setNext(nullptr);
+		m_size--;	
+	}
+	return true;
 }	
 
 template <typename T>
@@ -135,4 +150,40 @@ bool LinkedList<T>::removeFront()
 	}
 
 	return(isRemoved);
+}
+
+template <typename T>
+Node<T>* LinkedList<T>::backHelper1()
+{
+	Node<T>* endPtr; 
+	Node<T>* temp;
+	endPtr = m_front;
+	if(m_front != nullptr)
+	{
+		temp = m_front -> getNext();
+	} 
+	while(temp)
+	{
+		endPtr = temp; 
+		temp = temp -> getNext();
+	}
+	return endPtr; 
+}
+
+template <typename T>
+Node<T>* LinkedList<T>::backHelper2()
+{
+	Node<T>* endPtr; 
+	Node<T>* temp; 
+	temp = m_front;
+	if(m_front != nullptr)
+	{
+		endPtr = temp -> getNext();
+	}
+	while((endPtr -> getNext()) != nullptr)
+	{
+		temp = endPtr; 
+		endPtr = endPtr -> getNext();
+	}
+	return temp; 		
 }
