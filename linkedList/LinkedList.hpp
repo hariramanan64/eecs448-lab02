@@ -1,6 +1,6 @@
 /**
-*	@author 
-*	@date 
+*	@author hari ramanan and John gibbons
+*	@date 2/1/2016
 *	@file LinkedList.hpp
 *	@brief Implementation file for templated LinkedList class
 */
