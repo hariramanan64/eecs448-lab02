@@ -30,22 +30,31 @@ template <typename T>
 int LinkedList<T>::size() const
 {
 	/** TODO 
-		Fix this method
+		done
 	*/
-	return(0);
+	return m_size;
 }
 
 template <typename T>
 bool LinkedList<T>::search(T value) const
 {
-	Node<T>* temp = m_front;
+	Node<T>* currPtr = m_front;
 	bool isFound = false;
 
 	/** TODO 
-		Fix this method
+		done
 	*/
 
-	return(isFound);
+	while(currPtr)
+	{
+		if(value == (currPtr -> getValue()))
+		{
+			return true;
+		}
+		currPtr = (currPtr -> getNext());
+	}
+	return false;
+	
 }
 
 template <typename T>
