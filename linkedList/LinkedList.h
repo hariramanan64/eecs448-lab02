@@ -74,6 +74,9 @@ class LinkedList
 	*/	
 	bool removeFront();
 
+	Node<T>* backHelper1();
+	Node<T>* backHelper2();
+
 	private:
 	Node<T>* m_front;
 	T m_size;
